@@ -1,0 +1,25 @@
+[project]
+name = "gitbook-worker"
+version = "2.1.1"
+description = "Utilities to process GitBook repositories"
+authors = [
+    {name = "ERDA", email = "info@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests",
+    "tqdm",
+    "PyYAML",
+    "textstat",
+]
+
+[project.scripts]
+gitbook-worker = "gitbook_worker.__main__:main"
+
+[tool.setuptools.package-data]
+"gitbook_worker" = ["landscape.lua"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
