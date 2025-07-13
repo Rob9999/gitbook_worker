@@ -1,4 +1,4 @@
-# gitbook_worker
+# gitbook_worker (in development)
 
 This repository contains a GitBook processing helper written in Python. It is licensed under the MIT license.
 
