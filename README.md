@@ -30,4 +30,11 @@ pip install -e gitbook_worker
 gitbook-worker-docker --help
 ```
 
+Alternatively you can call the `mycli.py` wrapper script directly without
+installing anything:
+
+```bash
+./mycli.py --help
+```
+
 Mount your working directories as needed to process a GitBook repository.
