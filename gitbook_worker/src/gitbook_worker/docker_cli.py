@@ -11,12 +11,15 @@ from .docker_tools import ensure_docker_image, ensure_docker_desktop
 IMAGE_NAME = "gitbook-worker"
 
 
-def main() -> None:
+def main(args: list[str] | None = None) -> None:
     """Run gitbook-worker inside its Docker container."""
     ensure_docker_desktop()
     root_dir = Path(__file__).resolve().parents[2]
     dockerfile = root_dir / "Dockerfile"
     ensure_docker_image(IMAGE_NAME, str(dockerfile))
+
+    if args is None:
+        args = sys.argv[1:]
 
     cmd = [
         "docker",
@@ -27,7 +30,7 @@ def main() -> None:
         "-w",
         "/data",
         IMAGE_NAME,
-    ] + sys.argv[1:]
+    ] + list(args)
     subprocess.run(cmd, check=False)
 
 
